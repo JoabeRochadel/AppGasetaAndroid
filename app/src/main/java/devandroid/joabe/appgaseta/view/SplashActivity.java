@@ -24,7 +24,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent mainScreen = new Intent(SplashActivity.this, MainActivity.class);
+                Intent mainScreen = new Intent(SplashActivity.this, GasEtaActivity.class);
 
                 startActivity(mainScreen);
 

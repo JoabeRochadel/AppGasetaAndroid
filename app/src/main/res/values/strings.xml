@@ -1,12 +1,16 @@
 <resources>
     <string name="app_name">AppGasEta</string>
-    <string name="txt_hint_first_name">Gasolina x Etanol</string>
+    <string name="txt_hint_first_name">Gasolina X Etanol</string>
     <string name="txt_hint_second_name">Sobrenome</string>
     <string name="txt_hint_course_name">Nome do Curso</string>
     <string name="txt_hint_contact">Contato</string>
     <string name="txt_hint_requested_course">Curso Solicitado</string>
-    <string name="txt_title">Aplicativo Lista VIP Curso Android</string>
+    <string name="txt_title">Gasolina X Etanol</string>
     <string name="button_clean">LIMPAR</string>
     <string name="button_save">SALVAR</string>
     <string name="button_finish">FINALIZAR</string>
+    <string name="txt_hint_gas">R$ Litro/Gasolina</string>
+    <string name="buttonCalc">Calcular</string>
+    <string name="txt_hint_ethanol">Resultado</string>
+
 </resources>
