@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import devandroid.joabe.appgaseta.R;
+import devandroid.joabe.appgaseta.model.Fuel;
 import devandroid.joabe.appgaseta.util.UtilGasEta;
 
 public class GasEtaActivity extends AppCompatActivity {
@@ -29,6 +30,8 @@ public class GasEtaActivity extends AppCompatActivity {
     double priceGas;
     double priceEtha;
     String resultCalc;
+    Fuel gasoline;
+    Fuel ethanol;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -68,8 +71,7 @@ public class GasEtaActivity extends AppCompatActivity {
                     resultCalc = UtilGasEta.getBestOptionGasEta(priceGas, priceEtha);
 
                     txtCalc.setText(resultCalc);
-                }
-                else{
+                } else {
                     Toast.makeText(GasEtaActivity.this, "Digite os valores obrigatórios",
                             Toast.LENGTH_LONG).show();
                 }
@@ -88,6 +90,17 @@ public class GasEtaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                gasoline = new Fuel();
+                ethanol = new Fuel();
+
+                gasoline.setNameFuel("Gasolina");
+                gasoline.setPriceFuel(priceGas);
+
+                ethanol.setNameFuel("Etanol");
+                ethanol.setPriceFuel(priceEtha);
+
+                ethanol.setRecommendationFuel(resultCalc);
+                gasoline.setRecommendationFuel(resultCalc);
             }
         });
         buttonFinish.setOnClickListener(new View.OnClickListener() {

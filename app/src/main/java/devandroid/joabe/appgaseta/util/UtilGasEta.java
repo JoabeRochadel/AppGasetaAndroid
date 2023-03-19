@@ -8,7 +8,7 @@ public class UtilGasEta {
         String messageReturn;
 
         if (eta <= bestPrice){
-            messageReturn = "Abastecer com etanol!";
+            messageReturn = "Abastecer com Etanol!";
         } else{
           messageReturn = "Abastecer com Gasolina!";
         }
