@@ -11,6 +11,6 @@
     <string name="button_finish">FINALIZAR</string>
     <string name="txt_hint_gas">R$ Litro/Gasolina</string>
     <string name="buttonCalc">Calcular</string>
-    <string name="txt_hint_ethanol">Resultado</string>
+    <string name="txt_hint_ethanol">R$ Litro/Etanol</string>
 
 </resources>
