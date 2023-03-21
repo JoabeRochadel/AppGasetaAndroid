@@ -36,9 +36,4 @@ public class Fuel {
         this.recommendationFuel = recommendationFuel;
     }
 
-//    public Fuel(GasEtaActivity gasEtaActivity) {
-//        preferences = gasEtaActivity.getSharedPreferences(NAME_PREFERENCES, 0);
-//
-//        gasList = preferences.edit();
-//    }
 }

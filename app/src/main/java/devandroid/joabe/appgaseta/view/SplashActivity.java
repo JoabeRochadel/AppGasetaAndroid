@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import devandroid.joabe.appgaseta.R;
+import devandroid.joabe.appgaseta.database.GasEtaDB;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -24,6 +25,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                GasEtaDB db = new GasEtaDB(SplashActivity.this);
                 Intent mainScreen = new Intent(SplashActivity.this, GasEtaActivity.class);
 
                 startActivity(mainScreen);

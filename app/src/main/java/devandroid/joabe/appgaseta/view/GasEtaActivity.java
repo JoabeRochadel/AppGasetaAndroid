@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import devandroid.joabe.appgaseta.R;
+import devandroid.joabe.appgaseta.controller.FuelController;
 import devandroid.joabe.appgaseta.model.Fuel;
 import devandroid.joabe.appgaseta.util.UtilGasEta;
 
@@ -32,6 +33,7 @@ public class GasEtaActivity extends AppCompatActivity {
     String resultCalc;
     Fuel gasoline;
     Fuel ethanol;
+    FuelController fuelController;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,6 +49,8 @@ public class GasEtaActivity extends AppCompatActivity {
         buttonClean = findViewById(R.id.buttonClean);
         buttonSave = findViewById(R.id.buttonSave);
         buttonFinish = findViewById(R.id.buttonFinish);
+
+        fuelController = new FuelController(GasEtaActivity.this);
 
         buttonCalc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,9 +75,12 @@ public class GasEtaActivity extends AppCompatActivity {
                     resultCalc = UtilGasEta.getBestOptionGasEta(priceGas, priceEtha);
 
                     txtCalc.setText(resultCalc);
+
+                    buttonSave.setEnabled(true);
                 } else {
-                    Toast.makeText(GasEtaActivity.this, "Digite os valores obrigatórios",
-                            Toast.LENGTH_LONG).show();
+                    Toast.makeText(GasEtaActivity.this, "Digite os valores obrigatórios", Toast.LENGTH_LONG).show();
+
+                    buttonSave.setEnabled(false);
                 }
 
             }
@@ -84,6 +91,10 @@ public class GasEtaActivity extends AppCompatActivity {
                 editGas.setText("");
                 editEthanol.setText("");
                 txtCalc.setText("");
+
+                buttonSave.setEnabled(false);
+
+                fuelController.clean();
             }
         });
         buttonSave.setOnClickListener(new View.OnClickListener() {
@@ -95,12 +106,14 @@ public class GasEtaActivity extends AppCompatActivity {
 
                 gasoline.setNameFuel("Gasolina");
                 gasoline.setPriceFuel(priceGas);
+                gasoline.setRecommendationFuel(resultCalc);
 
                 ethanol.setNameFuel("Etanol");
                 ethanol.setPriceFuel(priceEtha);
-
                 ethanol.setRecommendationFuel(resultCalc);
-                gasoline.setRecommendationFuel(resultCalc);
+
+                fuelController.save(gasoline);
+                fuelController.save(ethanol);
             }
         });
         buttonFinish.setOnClickListener(new View.OnClickListener() {

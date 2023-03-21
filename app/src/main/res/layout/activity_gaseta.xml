@@ -112,6 +112,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:background="@color/colorButton"
+                android:enabled="false"
                 android:text="@string/button_save" />
 
             <Button
