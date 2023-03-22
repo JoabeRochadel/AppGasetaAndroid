@@ -20,14 +20,11 @@ public class GasEtaActivity extends AppCompatActivity {
 
     EditText editGas;
     EditText editEthanol;
-
     TextView txtCalc;
-
     Button buttonCalc;
     Button buttonClean;
     Button buttonSave;
     Button buttonFinish;
-
     double priceGas;
     double priceEtha;
     String resultCalc;
@@ -114,6 +111,7 @@ public class GasEtaActivity extends AppCompatActivity {
 
                 fuelController.save(gasoline);
                 fuelController.save(ethanol);
+
             }
         });
         buttonFinish.setOnClickListener(new View.OnClickListener() {
