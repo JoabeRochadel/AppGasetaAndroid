@@ -6,6 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import devandroid.joabe.appgaseta.model.Fuel;
+
 public class GasEtaDB extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "gaseta.db";
@@ -36,7 +41,34 @@ public class GasEtaDB extends SQLiteOpenHelper {
 
     }
 
-    public void saveObject(String table, ContentValues data){
+    public void saveObject(String table, ContentValues data) {
         db.insert(table, null, data);
+    }
+
+    public List<Fuel> ListData() {
+        List<Fuel> listFuel = new ArrayList<>();
+        Fuel reg;
+
+        String sSql = "SELECT * FROM FUEL";
+
+        cursor = db.rawQuery(sSql, null);
+
+        if (cursor.moveToFirst()) {
+
+            do {
+                reg = new Fuel();
+
+                reg.setId(cursor.getInt(0));
+                reg.setRecommendationFuel(cursor.getString(1));
+                reg.setPriceFuel(cursor.getDouble(2));
+                reg.setNameFuel(cursor.getString(3));
+
+                listFuel.add(reg);
+            }
+            while (cursor.moveToNext());
+        } else {
+
+        }
+        return listFuel;
     }
 }

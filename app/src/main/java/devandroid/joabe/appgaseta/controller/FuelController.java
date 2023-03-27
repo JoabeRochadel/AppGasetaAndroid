@@ -3,6 +3,8 @@ package devandroid.joabe.appgaseta.controller;
 import android.content.ContentValues;
 import android.content.SharedPreferences;
 
+import java.util.List;
+
 import devandroid.joabe.appgaseta.database.GasEtaDB;
 import devandroid.joabe.appgaseta.model.Fuel;
 import devandroid.joabe.appgaseta.view.GasEtaActivity;
@@ -20,7 +22,7 @@ public class FuelController extends GasEtaDB {
         gasList = preferences.edit();
     }
 
-    public void save(Fuel fuel){
+    public void save(Fuel fuel) {
         ContentValues data = new ContentValues();
         gasList.putString("fuel", fuel.getNameFuel());
         gasList.putFloat("price", (float) fuel.getPriceFuel());
@@ -35,9 +37,12 @@ public class FuelController extends GasEtaDB {
         saveObject("Fuel", data);
     }
 
-    public void clean(){
+    public void clean() {
         gasList.clear();
         gasList.apply();
     }
 
+    public List<Fuel> getListData() {
+        return ListData();
+    }
 }

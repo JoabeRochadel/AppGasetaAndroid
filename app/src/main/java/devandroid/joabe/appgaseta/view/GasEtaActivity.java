@@ -11,13 +11,14 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
+
 import devandroid.joabe.appgaseta.R;
 import devandroid.joabe.appgaseta.controller.FuelController;
 import devandroid.joabe.appgaseta.model.Fuel;
 import devandroid.joabe.appgaseta.util.UtilGasEta;
 
 public class GasEtaActivity extends AppCompatActivity {
-
     EditText editGas;
     EditText editEthanol;
     TextView txtCalc;
@@ -31,6 +32,7 @@ public class GasEtaActivity extends AppCompatActivity {
     Fuel gasoline;
     Fuel ethanol;
     FuelController fuelController;
+    List<Fuel> fuelData;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class GasEtaActivity extends AppCompatActivity {
         buttonFinish = findViewById(R.id.buttonFinish);
 
         fuelController = new FuelController(GasEtaActivity.this);
+        fuelData = fuelController.getListData();
 
         buttonCalc.setOnClickListener(new View.OnClickListener() {
             @Override
