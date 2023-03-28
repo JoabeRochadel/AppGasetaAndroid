@@ -52,6 +52,15 @@ public class GasEtaActivity extends AppCompatActivity {
         fuelController = new FuelController(GasEtaActivity.this);
         fuelData = fuelController.getListData();
 
+        Fuel objAlterar = fuelData.get(1);
+
+        objAlterar.setNameFuel("Abastecer com etanol");
+        objAlterar.setPriceFuel(9.99);
+
+        fuelController.alterData(objAlterar);
+
+        fuelController.delete(3);
+
         buttonCalc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

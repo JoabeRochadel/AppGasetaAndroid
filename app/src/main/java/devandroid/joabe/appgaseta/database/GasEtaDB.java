@@ -2,6 +2,7 @@ package devandroid.joabe.appgaseta.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -70,5 +71,17 @@ public class GasEtaDB extends SQLiteOpenHelper {
 
         }
         return listFuel;
+    }
+
+    public void AlterData(String table, ContentValues data){
+        int id = data.getAsInteger("id");
+
+        db.update(table, data, "id=?", new String[]{Integer.toString(id)});
+    }
+
+    public void DeleteData(String table, int id){
+
+
+        db.delete(table, "id=?", new String[]{Integer.toString(id)});
     }
 }
